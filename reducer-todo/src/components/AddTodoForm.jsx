@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './sass/AddTodoListForm.scss';
 
-const AddTodoListForm = ({ addTodo }) => {
+const AddTodoListForm = ({ addTodo, clearCompleted }) => {
     const [todoItem, setTodoItem] = useState('');
 
     const changeHandler = e => {
@@ -12,6 +12,12 @@ const AddTodoListForm = ({ addTodo }) => {
         e.preventDefault();
         addTodo(todoItem);
         setTodoItem('');
+    };
+
+    const clearCompletedTasks = () => {
+        if (window.confirm('Are you sure you want to clear your completed task(s)?')) {
+            clearCompleted();
+        }
     };
 
     return (
@@ -26,6 +32,7 @@ const AddTodoListForm = ({ addTodo }) => {
                 />
                 <button>Submit</button>
             </form>
+            <button onClick={clearCompletedTasks}>Clear Completed</button>
         </div>
     );
 };

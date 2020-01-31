@@ -1,19 +1,19 @@
+//Mixins:
 @mixin roundedBorders {
     border: 3px solid black;
     border-radius: 10%;
     margin: 1%;
 }
 
+button {
+    @include roundedBorders;
+}
+
 .AddTodoListForm {
     border: 1px solid black;
 
     form {
-
         input {
-            @include roundedBorders;
-        }
-        
-        button {
             @include roundedBorders;
         }
     }

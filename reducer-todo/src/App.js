@@ -17,11 +17,15 @@ const toggleCompleted = taskId => {
   dispatch({ type: "TOGGLE_COMPLETED", payload: taskId });
 };
 
+const clearCompleted = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
+};
+
   return (
     <div className="App">
       <h1>App!</h1>
       <TodoList tasks={state.tasks} toggleCompleted={toggleCompleted} />
-      <AddTodoForm addTodo={addTodo} />
+      <AddTodoForm addTodo={addTodo} clearCompleted={clearCompleted} />
     </div>
   );
 }

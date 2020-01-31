@@ -29,13 +29,16 @@ export const todoListReducer = (state, action) => {
             };
             return { tasks: [...state.tasks, newTodo] };
         case "TOGGLE_COMPLETED":
-            const updatedTasks = state.tasks.map(task => {
+            const toggledTaskArr = state.tasks.map(task => {
                 if (task.id === action.payload) {
                   return {...task, completed: !task.completed};
                 }
                 return task;
               });
-              return { tasks: updatedTasks };
+              return { tasks: toggledTaskArr };
+        case "CLEAR_COMPLETED":
+            const clearedTaskArr = state.tasks.filter(task => task.completed === false);
+            return { tasks: clearedTaskArr };
         default:
             return state;
     }
