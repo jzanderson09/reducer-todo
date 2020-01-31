@@ -38,7 +38,8 @@ const AddTodoListForm = ({ addTodo, clearCompleted }) => {
                 />
                 <h3>By:  </h3>
                 <div className='date-time-picker'>
-                    <DateTimePicker 
+                    <DateTimePicker
+                        style={{ width: '10%' }}
                         onChange={dateChange}
                         value={date}
                     />
