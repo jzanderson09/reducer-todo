@@ -1,8 +1,29 @@
+//Mixins:
+@mixin roundedBorders($brSz) {
+    border: #{$brSz}px solid black;
+    border-radius: 10%;
+    margin: 1% auto;
+}
+
+@mixin shadow($size) {
+    box-shadow: #{$size}px #{$size}px #{$size}px black;
+}
+//-------------------
+
 .ListItem {
     border: 1px solid black;
-    width: auto;
+    margin: auto;
+    width: 80%;
     background: red;
     color: white;
+    @include roundedBorders(3);
+    @include shadow(5);
+    cursor: pointer;
+
+    .due-date {
+        font-size: 1.5rem;
+        padding-bottom: 1%;
+    }
 }
 
 .completed {

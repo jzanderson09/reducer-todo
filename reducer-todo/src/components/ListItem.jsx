@@ -1,10 +1,13 @@
 import React from 'react';
 import './sass/ListItem.scss';
 
-const ListItem =({ task, toggleCompleted }) => {
+const ListItem = ({ dueDate, task, toggleCompleted }) => {
     return (
-        <div className={'ListItem' + (task.completed ? ' completed' : '')}>
-            <h3 onClick={() => toggleCompleted(task.id)}>Task:  {task.item}</h3>
+        <div className={'ListItem' + (task.completed ? ' completed' : '')}
+            onClick={() => toggleCompleted(task.id)}
+        >
+            <h3>Task:  {task.item}</h3>
+            <p className={'due-date' + (task.completed ? ' completed' : '')}>{`Due By: ${task.dueDate}`}</p>
         </div>
     );
 };

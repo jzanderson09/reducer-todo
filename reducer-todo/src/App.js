@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { initialState, todoListReducer } from './reducers';
-import './App.css';
+import './App.scss';
 
 //Components:
 import TodoList from './components/TodoList';
@@ -23,7 +23,7 @@ const clearCompleted = () => {
 
   return (
     <div className="App">
-      <h1>App!</h1>
+      <h1>Todo List:</h1>
       <TodoList tasks={state.tasks} toggleCompleted={toggleCompleted} />
       <AddTodoForm addTodo={addTodo} clearCompleted={clearCompleted} />
     </div>

@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
+import DateTimePicker from 'react-datetime-picker';
 import './sass/AddTodoListForm.scss';
 
 const AddTodoListForm = ({ addTodo, clearCompleted }) => {
     const [todoItem, setTodoItem] = useState('');
+    const [date, setDate] = useState(new Date());
 
-    const changeHandler = e => {
-        setTodoItem(e.target.value);
-    };
+    const changeHandler = e => setTodoItem(e.target.value);
+
+    const dateChange = date => setDate(date);
 
     const addNewTodo = e => {
         e.preventDefault();
-        addTodo(todoItem);
+        const newTodo = {
+            item: todoItem,
+            dueDate: date
+        };
+        addTodo(newTodo);
         setTodoItem('');
     };
 
@@ -30,9 +36,16 @@ const AddTodoListForm = ({ addTodo, clearCompleted }) => {
                     onChange={changeHandler}
                     autoComplete='off'
                 />
-                <button>Submit</button>
+                <h3>By:  </h3>
+                <div className='date-time-picker'>
+                    <DateTimePicker 
+                        onChange={dateChange}
+                        value={date}
+                    />
+                </div>
+                <button><p>Submit</p></button>
             </form>
-            <button onClick={clearCompletedTasks}>Clear Completed</button>
+            <button onClick={clearCompletedTasks}><p>Clear Completed</p></button>
         </div>
     );
 };

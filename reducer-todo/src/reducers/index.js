@@ -1,18 +1,23 @@
+const initialStateDate = 'Fri Jan 31 2020 00:0:00 GMT-0700 (Mountain Standard Time)';
+
 //initial State Object:
 export const initialState = {
     tasks: [
         {
             item: 'Learn about reducers',
+            dueDate: initialStateDate,
             completed: false,
             id: Date.now()
         },
         {
             item: 'Do Some Laundry',
+            dueDate: initialStateDate,
             completed: false,
             id: Date.now()*10
         },
         {
             item: 'Learn Redux',
+            dueDate: initialStateDate,
             completed: false,
             id:  Date.now()*23
         }
@@ -23,7 +28,8 @@ export const todoListReducer = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
             const newTodo = { 
-                item: action.payload,
+                item: action.payload.item,
+                dueDate: action.payload.dueDate,
                 completed: false,
                 id: Date.now()
             };
