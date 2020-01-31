@@ -1,10 +1,3 @@
-export default function appReducer(state = initialState, action) {
-    switch (action.type) {
-        default:
-            return state;
-    }
-}
-
 //initial State Object:
 export const initialState = {
     tasks: [
@@ -24,4 +17,14 @@ export const initialState = {
             id:  Date.now()*23
         }
     ]
-};
+}
+
+export const todoListReducer = (state, action) => {
+    switch (action.type) {
+        case "ADD_TODO":
+            return { tasks: [...state.tasks, action.payload] };
+        default:
+            return state;
+    }
+}
+
