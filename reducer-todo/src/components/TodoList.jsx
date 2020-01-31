@@ -1,10 +1,10 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-const TodoList = props => {
+const TodoList = ({ tasks, toggleCompleted }) => {
     return (
         <div className='TodoList'>
-            {props.tasks.map(task => <ListItem item={task.item} />)}       
+            {tasks.map(task => <ListItem task={task} toggleCompleted={toggleCompleted} />)}       
         </div>
     );
 };

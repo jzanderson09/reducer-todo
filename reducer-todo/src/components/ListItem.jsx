@@ -1,9 +1,10 @@
 import React from 'react';
+import './sass/ListItem.scss';
 
-const ListItem = props => {
+const ListItem =({ task, toggleCompleted }) => {
     return (
-        <div className='ListItem'>
-            <h3>Task:  {props.item}</h3>
+        <div className={'ListItem' + (task.completed ? ' completed' : '')}>
+            <h3 onClick={() => toggleCompleted(task.id)}>Task:  {task.item}</h3>
         </div>
     );
 };

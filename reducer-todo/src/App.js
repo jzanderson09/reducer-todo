@@ -10,18 +10,17 @@ function App() {
   const [state, dispatch] = useReducer(todoListReducer, initialState);
 
   const addTodo = newTask => {
-    const newTodo = { 
-        item: newTask,
-        completed: false,
-        id: Date.now()
-    };
-    dispatch({ type: "ADD_TODO", payload: newTodo });
+    dispatch({ type: "ADD_TODO", payload: newTask });
+};
+
+const toggleCompleted = taskId => {
+  dispatch({ type: "TOGGLE_COMPLETED", payload: taskId });
 };
 
   return (
     <div className="App">
       <h1>App!</h1>
-      <TodoList tasks={state.tasks} />
+      <TodoList tasks={state.tasks} toggleCompleted={toggleCompleted} />
       <AddTodoForm addTodo={addTodo} />
     </div>
   );
