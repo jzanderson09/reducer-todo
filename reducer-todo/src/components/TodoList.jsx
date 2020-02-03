@@ -6,7 +6,7 @@ const TodoList = ({ tasks, toggleCompleted }) => {
     if (tasks.length !== 0) {
         return (
             <div className='TodoList'>
-                {tasks.map(task => <ListItem duedate={task.duedate} task={task} toggleCompleted={toggleCompleted} />)}       
+                {tasks.map(task => <ListItem task={task} toggleCompleted={toggleCompleted} />)}       
             </div>
         );
     }
