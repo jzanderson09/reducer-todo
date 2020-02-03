@@ -1,0 +1,73 @@
+//Mixins:
+@mixin roundedBorders($brSz) {
+    border: #{$brSz}px solid black;
+    border-radius: 10%;
+}
+@mixin shadow($size) {
+    box-shadow: #{$size}px #{$size}px #{$size}px black;
+}
+//----------------------
+
+button {
+    @include roundedBorders(3);
+    margin: 1%;
+    width: 10%;
+}
+
+.AddTodoListForm {
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+    @include roundedBorders(3);
+    @include shadow(5);
+
+    form {
+
+        input {
+            @include roundedBorders(3);
+            @include shadow(2);
+            margin: 1%;
+            padding: 1%;
+        }
+
+        .date-time-picker {
+            height: auto;
+            width: auto;
+
+            .react-datetime-picker {
+                width: 20%;
+                height: auto;
+                margin: 1%;
+                @include roundedBorders(3);
+
+                .react-datetime-picker__inputGroup {
+                    margin: 3% auto;
+
+                    input {
+                        border: 1px solid black;
+                        font-size: 1.5rem;
+                        margin-bottom: 5%;
+                        padding: 1%;
+                        width: 3%;
+                    }
+                }
+
+                .react-calendar {
+                    padding: 5%;
+                    font-size: 4rem;
+                    margin: 1%;
+                    @include roundedBorders(3);
+
+                    .react-calendar__navigation {
+                        margin: 0;
+                    }
+
+                    .react-calendar__month-view__days {
+                        font-size: 2rem;
+                    }
+                }
+            }
+
+        }
+    }
+}
